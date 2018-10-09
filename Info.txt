@@ -1,1 +1,19 @@
-Purpose : If you are in enviornment where you have to manage many servers and you need to communicate with server's owner or applciation owner about server and you are logged on server.
+Purpose : If you are in enviornment where you have to manage many servers and you need to communicate with server's owner or applciation
+owner about server and you are logged on server, don't want to go at your monitoring tool or csv/excel file to get server's owner or 
+application owner email ID and description to email/contact them about server then it is very helpful to update this info in motd file to
+make your life easier.
+
+Challanges :
+1 . If you have more than 1000 servers then it is very tedious to update motd file on each server.
+2 . lets presume you have created playbook to update motd file then it will be also very tedious to define severs owner's email ID,
+description in varabiles for each servers.
+
+Now Question : How to make automate it?
+To automate it  2 componets are necessary.
+1 - you should have ansible configured on one server in your enviornemnt and that server will have access to all servers  (usually in
+large enviroment there must be a master server or jump server "whatever you called it" that server uses to access your infrastcture servers.)
+2 - you should have all servers name, description....etc in .csv file (If you are in large enviroment then you must have this informaiton
+in .csv/excel file or you can fetch this information from your monitoring tools in .csv/excel format because many montiroing tools provide export funcanlity to import information in .csv file)
+
+
+
