@@ -1,19 +1,31 @@
 Purpose : If you are in enviornment where you have to manage many servers and you need to communicate with server's owner or applciation
-owner about server and you are logged on server, don't want to go at your monitoring tool or csv/excel file to get server's owner or 
+owner about server and you are logged on server, don't want to go at your monitoring tool or csv/excel file to get server's owner and 
 application owner email ID and description to email/contact them about server then it is very helpful to update this info in motd file to
 make your life easier.
 
 Challanges :
 1 . If you have more than 1000 servers then it is very tedious to update motd file on each server.
-2 . lets presume you have created playbook to update motd file then it will be also very tedious to define severs owner's email ID,
-description in varabiles for each servers.
+2 . lets presume you have created playbook to update motd file then it will be also very tedious to define severs owner's email ID and
+description in varabiles for each server.
 
-Now Question : How to make automate it?
+Now Question : How to  automate it?
 To automate it  2 componets are necessary.
 1 - you should have ansible configured on one server in your enviornemnt and that server will have access to all servers  (usually in
 large enviroment there must be a master server or jump server "whatever you called it" that server uses to access your infrastcture servers.)
 2 - you should have all servers name, description....etc in .csv file (If you are in large enviroment then you must have this informaiton
 in .csv/excel file or you can fetch this information from your monitoring tools in .csv/excel format because many montiroing tools provide export funcanlity to import information in .csv file)
+Once you fetch that inforamtion in .csv file then save only Server, Description, owner, Production in .csv format and put that .csv file on your linux server under git cloned motd directory.
+you can include/exclude field from .csv file according to your requirement but for this you will need to modify 2 things.
+1st - modify 21st lines in inventorygen.py and add or exclude field according to your requirement in yield statement. 21st lines currently looks like below.
+yield('{} Des="{}" ow="{}" prod="{}"'.format(row['Server'],row['Description'],row['Owner'],row['production'])
+2nd - Modify "roles/motd_update/templates/motd.j2" according to added or excluded field in inventorygen.py file.
+Now you can execute inventorygen.py to generate ansible inventory with varabiles for each server like below
+
+#./inventorygen.py linux_inv.csv newinventory 
+
+In above command "linux_inv.csv" is your .csv file which contain information and "newinventory" is your ansible inventory which will be used via ansible playbook.
+
+
 
 
 
