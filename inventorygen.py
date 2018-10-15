@@ -18,7 +18,7 @@ class Inventgent:
               csv_reader = csv.DictReader(csv_file)
               for row in csv_reader:
         # print(row['Server'],"Des=",row['Server_Description'],"ow=",row['Owner'],"prod=",row['Production'])
-                 yield('{} Des="{}" ow="{}" prod="{}"'.format(row['Server'],row['Server_Description'],row['Owner'],row['Production']))
+                 yield('{} Des="{}" ow="{}" prod="{}"'.format(row['Server'],row['Description'],row['Owner'],row['Production']))
 
      def writefile(self):
          with open(self.wfilename, 'w') as csv_file:
@@ -26,7 +26,7 @@ class Inventgent:
                   csv_file.write(i + '\n')
 
 
-# I am putting this block so that in Linux enviormt end user execute it directly via CLI by passing their server info file and new  inventory name
+# I am putting this block so that in Linux environment end user execute it directly via CLI by passing their server info file and new  inventory name
 if len(sys.argv) == 3 and os.path.isfile(sys.argv[1]):
    info_csv = sys.argv[1]
    inv_file = sys.argv[2]
