@@ -36,3 +36,5 @@ else:
 
 cc = Inventgent(info_csv, inv_file)
 cc.writefile()
+
+
