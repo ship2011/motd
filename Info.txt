@@ -1,3 +1,4 @@
+
 Purpose : If you are in enviornment where you have to manage many servers and you need to communicate with server's owner or applciation
 owner about server and you are logged on server, don't want to go at your monitoring tool or csv/excel file to get server's owner and 
 application owner email ID and description to email/contact them about server then it is very helpful to update this info in motd file to
@@ -24,6 +25,11 @@ Now you can execute inventorygen.py to generate ansible inventory with varabiles
 #./inventorygen.py linux_inv.csv newinventory 
 
 In above command "linux_inv.csv" is your .csv file which contain information and "newinventory" is your ansible inventory which will be used via ansible playbook
+Now execute playbook like below.
+
+#ansible-playbook motd.yml -i linux_inv.csv -k -K --sudo
+
+that's all >>>>>
 
 
 
