@@ -1,0 +1,4 @@
+---
+ - name: Update motd file according to Inventory
+   template: src=motd.j2 dest=/etc/motd owner=root group=root mode=0644
+   when: Description is defined and Owner is defined 
