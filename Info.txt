@@ -23,7 +23,7 @@ Now you can execute inventorygen.py to generate ansible inventory with varabiles
 
 #./inventorygen.py linux_inv.csv newinventory 
 
-In above command "linux_inv.csv" is your .csv file which contain information and "newinventory" is your ansible inventory which will be used via ansible playbook.
+In above command "linux_inv.csv" is your .csv file which contain information and "newinventory" is your ansible inventory which will be used via ansible playbook
 
 
 
