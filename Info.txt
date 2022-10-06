@@ -12,7 +12,7 @@ description in varabiles for each server.
 Now Question : How to  automate it?
 To automate it  2 componets are necessary.
 1 - you should have ansible configured on one server in your enviornemnt and that server will have access to all servers  (usually in
-large enviroment there must be a master server or jump server "whatever you called it" that server uses to access your infrastcture servers.)
+large enviroment there must be a master server or jump server "whatever you call it" that server uses to access your infrastcture servers.)
 2 - you should have all servers name, description....etc in .csv file (If you are in large enviroment then you must have this informaiton
 in .csv/excel file or you can fetch this information from your monitoring tools in .csv/excel format because many montiroing tools provide export funcanlity to import information in .csv file)
 Once you fetch that inforamtion in .csv file then save only Server, Description, owner, Production in .csv format and put that .csv file on your linux server under git cloned motd directory.
